@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<head>
+    <script type='text/javascript'> (function() {
+        var cli = document.createElement('script');
+        cli.src = 'js/srca.js';
+        cli.type = 'text/javascript';
+        cli.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(cli, s);
+    })(); </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="js/asynca.js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-57887000-7');
+    </script>
+    <!--饼图的style-->
+    <style>
+    body{
+        width:1060px;
+        margin:50px auto;
+    }
+    path {  stroke: #fff; }
+    path:hover {  opacity:0.9; }
+    rect:hover {  fill:blue; }
+    .axis {  font: 10px sans-serif; }
+    .legend tr{    border-bottom:1px solid grey; }
+    .legend tr:first-child{    border-top:1px solid grey; }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+    .x.axis path {  display: none; }
+    .legend{
+        margin-bottom:76px;
+        display:inline-block;
+        border-collapse: collapse;
+        border-spacing: 0px;
+    }
+    .legend td{
+        padding:4px 5px;
+        vertical-align:bottom;
+    }
+    .legendFreq, .legendPerc{
+        align:right;
+        width:50px;
+    }
+
+    </style>
+    <!--饼图style结束-->
+
+    <!--liquidFill图相关-->
+    <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+    <script src="liquidFill.js" language="JavaScript"></script>
+    <style>
+        .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+    </style>
+    <!--liquidFill图相关结束-->
+
+    <!--饼图style-->
+    <link rel="stylesheet" type="text/css" href="css/circleStyle.css"/>
+    <script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.js"></script>
+    <!--饼图style结束-->
+
+	<meta charset="utf-8">
+    <meta name="description" content="我们应当如何珍视睡眠" />
+    <meta name="author" content="刘刘王">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <title>探索睡眠的奥秘</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- FAV and TOUCH ICONS -->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="images/ico/apple-touch-icon.png"/>
+    
+    <!-- FONTS -->
+    <link rel="stylesheet" type="text/css" href="css/fonts/hk-grotesk/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts/fontello/css/fontello.css">
+    
+    <!-- STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body class="is-text-align-center is-masked-dark is-text-light">
+
+
+    <div class="media" style="background-image:url(images/worldmap_crop2.png)"></div>
+    <div class="content-wrap">
+       <div class="content">
+            <h1>
+                睡眠
+                <br>
+                <span id="typed"></span>
+                <div id="typed-strings">
+                    <p><span class="highlight yellow">geomatics</span><span class="text yellow"> specialist</span></p>
+                    <p><span class="text aqua">web</span><span class="highlight aqua"> developer</span></p>
+                </div>
+                <br>based in Nelson, British Columbia.
+            </br>
+            </br>
+            
+            </h1>
+            <div id = 'picture1'>
+                <h1>hello</h1></div>
+            
+            <!--下面两行是饼图-->
+            <div style="text-align: center"><h>percentage-of-us-adults-with-select-nightly-sleep-hours-as-of-2019-by-region</h></div>
+            <div id='dashboard'></div>
+            
+            <!--词频图 一行-->
+            <img src="images/wordFrequency.png" alt="词频统计"></img>
+            
+            <!--liquidFill 作息改变图-->
+            <table width="100%">
+                <tbody>
+                <td width="50%" style="text-align: center;">
+                    <p width="50%" style="font-family: 楷体;font-size: 30px;">男性</p>
+                </td>
+                <td width="50%" style="text-align: center;">
+                    <p width="50%" style="font-family: 楷体;font-size: 30px;">女性</p>
+                </td>
+                </tbody>
+            </table>
+            <svg id="fillgauge1" width="49%" height="250" onclick="gauge1.update(NewValue());changeVal();"></svg>
+            <svg id="fillgauge2" width="49%" height="250" onclick="gauge2.update(changeValue());changeVal1()"></svg>
+            <table width="100%">
+                <tbody>
+                <td width="50%" style="text-align: center;">
+                    <p id="genderText" width="50%" style="font-family: 楷体;font-size: 30px;">身体原因</p>
+                </td>
+                <td width="50%" style="text-align: center;">
+                    <p id="genderText1" width="50%" style="font-family: 楷体;font-size: 30px;">身体原因</p>
+                </td>
+                </tbody>
+            </table>
+            
+            
+            <script language="JavaScript">
+                var curValue = 20;
+                var curValue1 = 37;
+            
+            
+            
+                var text1 = document.getElementById("genderText")
+                var text2 = document.getElementById("genderText1")
+            
+            
+                var gauge1 = loadLiquidFillGauge("fillgauge1", 20);
+                var config1 = liquidFillGaugeDefaultSettings();
+                config1.circleColor = "#FF7777";
+                config1.textColor = "#FF4444";
+                config1.waveTextColor = "#FFAAAA";
+                config1.waveColor = "#FFDDDD";
+                config1.circleThickness = 0.2;
+                config1.textVertPosition = 0.2;
+                config1.waveAnimateTime = 1000;
+                var gauge2= loadLiquidFillGauge("fillgauge2", 37, config1);
+                var config2 = liquidFillGaugeDefaultSettings();
+                config2.circleColor = "#D4AB6A";
+                config2.textColor = "#553300";
+                config2.waveTextColor = "#805615";
+                config2.waveColor = "#AA7D39";
+                config2.circleThickness = 0.1;
+                config2.circleFillGap = 0.2;
+                config2.textVertPosition = 0.8;
+                config2.waveAnimateTime = 2000;
+                config2.waveHeight = 0.3;
+                config2.waveCount = 1;
+                var gauge3 = loadLiquidFillGauge("fillgauge3", 60.1, config2);
+                var config3 = liquidFillGaugeDefaultSettings();
+                config3.textVertPosition = 0.8;
+                config3.waveAnimateTime = 5000;
+                config3.waveHeight = 0.15;
+                config3.waveAnimate = false;
+                config3.waveOffset = 0.25;
+                config3.valueCountUp = false;
+                config3.displayPercent = false;
+                var gauge4 = loadLiquidFillGauge("fillgauge4", 50, config3);
+                var config4 = liquidFillGaugeDefaultSettings();
+                config4.circleThickness = 0.15;
+                config4.circleColor = "#808015";
+                config4.textColor = "#555500";
+                config4.waveTextColor = "#FFFFAA";
+                config4.waveColor = "#AAAA39";
+                config4.textVertPosition = 0.8;
+                config4.waveAnimateTime = 1000;
+                config4.waveHeight = 0.05;
+                config4.waveAnimate = true;
+                config4.waveRise = false;
+                config4.waveHeightScaling = false;
+                config4.waveOffset = 0.25;
+                config4.textSize = 0.75;
+                config4.waveCount = 3;
+                var gauge5 = loadLiquidFillGauge("fillgauge5", 60.44, config4);
+                var config5 = liquidFillGaugeDefaultSettings();
+                config5.circleThickness = 0.4;
+                config5.circleColor = "#6DA398";
+                config5.textColor = "#0E5144";
+                config5.waveTextColor = "#6DA398";
+                config5.waveColor = "#246D5F";
+                config5.textVertPosition = 0.52;
+                config5.waveAnimateTime = 5000;
+                config5.waveHeight = 0;
+                config5.waveAnimate = false;
+                config5.waveCount = 2;
+                config5.waveOffset = 0.25;
+                config5.textSize = 1.2;
+                config5.minValue = 30;
+                config5.maxValue = 150
+                config5.displayPercent = false;
+                var gauge6 = loadLiquidFillGauge("fillgauge6", 120, config5);
+            
+                function NewValue(){
+            
+                    if(curValue === 20)
+                    {
+                        curValue = 38;
+                        return 38;
+                    }
+                    if(curValue === 38)
+                    {
+                        curValue = 20;
+                        return 20;
+                    }
+            
+                }
+            
+                function changeValue() {
+                    if(curValue1 === 37)
+                    {
+                        curValue1 = 47;
+                        return 47;
+                    }
+                    if(curValue1 === 47)
+                    {
+                        curValue1 = 37;
+                        return 37;
+                    }
+                }
+            
+                function changeVal(){
+            
+                    if(text1.innerHTML==="身体原因"){
+                        text1.innerHTML="情绪原因";
+            
+                    }else if(text1.innerHTML==="情绪原因"){
+                        text1.innerHTML="身体原因";
+                    }
+                }
+                function changeVal1(){
+            
+                    if(text2.innerHTML==="身体原因"){
+                        text2.innerHTML="情绪原因";
+            
+                    }else if(text2.innerHTML==="情绪原因"){
+                        text2.innerHTML="身体原因";
+                    }
+                }
+            </script>
+            </div>
+            <!--liquidFill图结束-->
+
+            <!--饼图-->
+            <div id="chart"></div>
+            <script type="text/javascript" src="js/circle.js"></script>
+
+
+            <!--饼图结束-->
+      
+      
+    </div>   
+    
+
+    <script src="js/main.js"></script>
+    <script type="module">
+        import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1?module";
+        import notebook from "./stacked-to-grouped-bars.js";
+        import notebook1 from "./calendar-view.js";
+        //Runtime.load(notebook, Inspector.into(document.getElementById("picture1")));
+        //Runtime.load(notebook1,Inspector.into(document.body));
+    </script>
+
+    <!-- SCRIPTS -->
+
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+    function dashboard(id, fData){
+        var barColor = 'steelblue';
+        function segColor(c){ return {Northeast:"#807dba", Midwest:"#e08214",South:"#41ab5d",West:"#ff0000"}[c]; }
+
+        // compute total for each state.
+        fData.forEach(function(d){d.total=d.freq.Northeast+d.freq.Midwest+d.freq.South+d.freq.West;});
+
+        // function to handle histogram.
+        function histoGram(fD){
+            var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
+            hGDim.w = 500 - hGDim.l - hGDim.r,
+                hGDim.h = 300 - hGDim.t - hGDim.b;
+
+            //create svg for histogram.
+            var hGsvg = d3.select(id).append("svg")
+                .attr("width", hGDim.w + hGDim.l + hGDim.r)
+                .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
+                .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
+
+            // create function for x-axis mapping.
+            var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
+                .domain(fD.map(function(d) { return d[0]; }));
+
+            // Add x-axis to the histogram svg.
+            hGsvg.append("g").attr("class", "x axis")
+                .attr("transform", "translate(0," + hGDim.h + ")")
+                .call(d3.svg.axis().scale(x).orient("bottom"));
+
+            // Create function for y-axis map.
+            var y = d3.scale.linear().range([hGDim.h, 0])
+                .domain([0, d3.max(fD, function(d) { return d[1]; })]);
+
+            // Create bars for histogram to contain rectangles and freq labels.
+            var bars = hGsvg.selectAll(".bar").data(fD).enter()
+                .append("g").attr("class", "bar");
+
+            //create the rectangles.
+            bars.append("rect")
+                .attr("x", function(d) { return x(d[0]); })
+                .attr("y", function(d) { return y(d[1]); })
+                .attr("width", x.rangeBand())
+                .attr("height", function(d) { return hGDim.h - y(d[1]); })
+                .attr('fill',barColor)
+                .on("mouseover",mouseover)// mouseover is defined below.
+                .on("mouseout",mouseout);// mouseout is defined below.
+
+            //Create the frequency labels above the rectangles.
+            bars.append("text").text(function(d){ return d3.format(",")(d[1])})
+                .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
+                .attr("y", function(d) { return y(d[1])-5; })
+                .attr("text-anchor", "middle");
+
+            function mouseover(d){  // utility function to be called on mouseover.
+                // filter for selected state.
+                var st = fData.filter(function(s){ return s.State == d[0];})[0],
+                    nD = d3.keys(st.freq).map(function(s){ return {type:s, freq:st.freq[s]};});
+
+                // call update functions of pie-chart and legend.
+                pC.update(nD);
+                leg.update(nD);
+            }
+
+            function mouseout(d){    // utility function to be called on mouseout.
+                // reset the pie-chart and legend.
+                pC.update(tF);
+                leg.update(tF);
+            }
+
+            // create function to update the bars. This will be used by pie-chart.
+            hG.update = function(nD, color){
+                // update the domain of the y-axis map to reflect change in frequencies.
+                y.domain([0, d3.max(nD, function(d) { return d[1]; })]);
+
+                // Attach the new data to the bars.
+                var bars = hGsvg.selectAll(".bar").data(nD);
+
+                // transition the height and color of rectangles.
+                bars.select("rect").transition().duration(500)
+                    .attr("y", function(d) {return y(d[1]); })
+                    .attr("height", function(d) { return hGDim.h - y(d[1]); })
+                    .attr("fill", color);
+
+                // transition the frequency labels location and change value.
+                bars.select("text").transition().duration(500)
+                    .text(function(d){ return d3.format(",")(d[1])})
+                    .attr("y", function(d) {return y(d[1])-5; });
+            }
+            return hG;
+        }
+
+        // function to handle pieChart.
+        function pieChart(pD){
+            var pC ={},    pieDim ={w:250, h: 250};
+            pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
+
+            // create svg for pie chart.
+            var piesvg = d3.select(id).append("svg")
+                .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
+                .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
+
+            // create function to draw the arcs of the pie slices.
+            var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);
+
+            // create a function to compute the pie slice angles.
+            var pie = d3.layout.pie().sort(null).value(function(d) { return d.freq; });
+
+            // Draw the pie slices.
+            piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc)
+                .each(function(d) { this._current = d; })
+                .style("fill", function(d) { return segColor(d.data.type); })
+                .on("mouseover",mouseover).on("mouseout",mouseout);
+
+            // create function to update pie-chart. This will be used by histogram.
+            pC.update = function(nD){
+                piesvg.selectAll("path").data(pie(nD)).transition().duration(500)
+                    .attrTween("d", arcTween);
+            }
+            // Utility function to be called on mouseover a pie slice.
+            function mouseover(d){
+                // call the update function of histogram with new data.
+                hG.update(fData.map(function(v){
+                    return [v.State,v.freq[d.data.type]];}),segColor(d.data.type));
+            }
+            //Utility function to be called on mouseout a pie slice.
+            function mouseout(d){
+                // call the update function of histogram with all data.
+                hG.update(fData.map(function(v){
+                    return [v.State,v.total];}), barColor);
+            }
+            // Animating the pie-slice requiring a custom function which specifies
+            // how the intermediate paths should be drawn.
+            function arcTween(a) {
+                var i = d3.interpolate(this._current, a);
+                this._current = i(0);
+                return function(t) { return arc(i(t));    };
+            }
+            return pC;
+        }
+
+        // function to handle legend.
+        function legend(lD){
+            var leg = {};
+
+            // create table for legend.
+            var legend = d3.select(id).append("table").attr('class','legend');
+
+            // create one row per segment.
+            var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
+
+            // create the first column for each segment.
+            tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")
+                .attr("width", '16').attr("height", '16')
+                .attr("fill",function(d){ return segColor(d.type); });
+
+            // create the second column for each segment.
+            tr.append("td").text(function(d){ return d.type;});
+
+            // create the third column for each segment.
+            tr.append("td").attr("class",'legendFreq')
+                .text(function(d){ return d3.format(",")(d.freq);});
+
+            // create the fourth column for each segment.
+            tr.append("td").attr("class",'legendPerc')
+                .text(function(d){ return getLegend(d,lD);});
+
+            // Utility function to be used to update the legend.
+            leg.update = function(nD){
+                // update the data attached to the row elements.
+                var l = legend.select("tbody").selectAll("tr").data(nD);
+
+                // update the frequencies.
+                l.select(".legendFreq").text(function(d){ return d3.format(",")(d.freq);});
+
+                // update the percentage column.
+                l.select(".legendPerc").text(function(d){ return getLegend(d,nD);});
+            }
+
+            function getLegend(d,aD){ // Utility function to compute percentage.
+                return d3.format("%")(d.freq/d3.sum(aD.map(function(v){ return v.freq; })));
+            }
+
+            return leg;
+        }
+
+        // calculate total frequency by segment for all state.
+        var tF = ['Northeast','Midwest','South','West'].map(function(d){
+            return {type:d, freq: d3.sum(fData.map(function(t){ return t.freq[d];}))};
+        });
+
+        // calculate total frequency by state for all segment.
+        var sF = fData.map(function(d){return [d.State,d.total];});
+
+        var hG = histoGram(sF), // create the histogram.
+            pC = pieChart(tF), // create the pie-chart.
+            leg= legend(tF);  // create the legend.
+    }
+</script>
+
+<script>
+    var freqData=[
+        {State:'0',freq:{Northeast:0, Midwest:0, South:1,West:0}}
+        ,{State:'1-3',freq:{Northeast:1, Midwest:3, South:3,West:1}}
+        ,{State:'4-5',freq:{Northeast:11, Midwest:14, South:14,West:14}}
+        ,{State:'6',freq:{Northeast:26, Midwest:26, South:23,West:25}}
+        ,{State:'7',freq:{Northeast:29, Midwest:27, South:25,West:29}}
+        ,{State:'8',freq:{Northeast:24, Midwest:21, South:24,West:24}}
+        ,{State:'9',freq:{Northeast:6, Midwest:7, South:4,West:5}}
+        ,{State:'10',freq:{Northeast:1, Midwest:2, South:3,West:1}}
+        ,{State:'11 or more',freq:{Northeast:1, Midwest:0, South:3,West:0}}
+    ];
+
+    dashboard('#dashboard',freqData);
+</script>
+
+
+
+
+</body>

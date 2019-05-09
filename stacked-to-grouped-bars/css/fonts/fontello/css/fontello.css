@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.eot?29896784');
+    src: url('../font/fontello.eot?29896784#iefix') format('embedded-opentype'),
+         url('../font/fontello.woff2?29896784') format('woff2'),
+         url('../font/fontello.woff?29896784') format('woff'),
+         url('../font/fontello.ttf?29896784') format('truetype'),
+         url('../font/fontello.svg?29896784#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+  /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+  /*
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+      font-family: 'fontello';
+      src: url('../font/fontello.svg?29896784#fontello') format('svg');
+    }
+  }
+  */
+   
+   [class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+   
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+   
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+   
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+   
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+   
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+   
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+   
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  }
+   
+  .icon-menu:before { content: '\e800'; } /* '顮€' */
+  .icon-gplus:before { content: '\e801'; } /* '顮�' */
+  .icon-doc-text:before { content: '\e802'; } /* '顮�' */
+  .icon-spotify:before { content: '\e803'; } /* '顮�' */
+  .icon-comment:before { content: '\e804'; } /* '顮�' */
+  .icon-food:before { content: '\e805'; } /* '顮�' */
+  .icon-home:before { content: '\e806'; } /* '顮�' */
+  .icon-vcard:before { content: '\e807'; } /* '顮�' */
+  .icon-bicycle:before { content: '\e808'; } /* '顮�' */
+  .icon-apple:before { content: '\e809'; } /* '顮�' */
+  .icon-laptop:before { content: '\e80a'; } /* '顮�' */
+  .icon-map:before { content: '\e80b'; } /* '顮�' */
+  .icon-gift:before { content: '\e80c'; } /* '顮�' */
+  .icon-wine:before { content: '\e80d'; } /* '顮�' */
+  .icon-book-open:before { content: '\e80e'; } /* '顮�' */
+  .icon-address:before { content: '\e80f'; } /* '顮�' */
+  .icon-skype-outline:before { content: '\e810'; } /* '顮�' */
+  .icon-download-alt:before { content: '\e811'; } /* '顮�' */
+  .icon-videocam-outline:before { content: '\e816'; } /* '顮�' */
+  .icon-facebook:before { content: '\e825'; } /* '顮�' */
+  .icon-twitter:before { content: '\e826'; } /* '顮�' */
+  .icon-linkedin-squared:before { content: '\e827'; } /* '顮�' */
+  .icon-pinterest-circled:before { content: '\e829'; } /* '顮�' */
+  .icon-github-circled:before { content: '\e82a'; } /* '顮�' */
+  .icon-behance:before { content: '\e82b'; } /* '顮�' */
+  .icon-dribbble:before { content: '\e82c'; } /* '顮�' */
+  .icon-address-1:before { content: '\e82d'; } /* '顮�' */
+  .icon-lastfm:before { content: '\e82e'; } /* '顮�' */
+  .icon-rss:before { content: '\e82f'; } /* '顮�' */
+  .icon-vimeo-squared:before { content: '\e830'; } /* '顮�' */
+  .icon-forrst:before { content: '\e831'; } /* '顮�' */
+  .icon-skype:before { content: '\e832'; } /* '顮�' */
+  .icon-youtube-play:before { content: '\e834'; } /* '顮�' */
+  .icon-flickr:before { content: '\e835'; } /* '顮�' */
+  .icon-tumblr:before { content: '\e836'; } /* '顮�' */
+  .icon-blogger:before { content: '\e837'; } /* '顮�' */
+  .icon-delicious:before { content: '\e838'; } /* '顮�' */
+  .icon-digg:before { content: '\e839'; } /* '顮�' */
+  .icon-wordpress:before { content: '\e83b'; } /* '顮�' */
+  .icon-stackoverflow:before { content: '\e83c'; } /* '顮�' */
+  .icon-foursquare:before { content: '\e83d'; } /* '顮�' */
+  .icon-xing:before { content: '\e83e'; } /* '顮�' */
+  .icon-sina-weibo:before { content: '\e83f'; } /* '顮�' */
+  .icon-soundcloud:before { content: '\e840'; } /* '睢€' */
+  .icon-fivehundredpx:before { content: '\e841'; } /* '睢�' */
+  .icon-slideshare:before { content: '\e842'; } /* '睢�' */
+  .icon-android:before { content: '\e843'; } /* '睢�' */
+  .icon-windows:before { content: '\e845'; } /* '睢�' */
+  .icon-vkontakte:before { content: '\e846'; } /* '睢�' */
+  .icon-myspace:before { content: '\e847'; } /* '睢�' */
+  .icon-meetup:before { content: '\e848'; } /* '睢�' */
+  .icon-reddit:before { content: '\e84a'; } /* '睢�' */
+  .icon-stumbleupon-circled:before { content: '\e84b'; } /* '睢�' */
+  .icon-path:before { content: '\e84c'; } /* '睢�' */
+  .icon-dropbox:before { content: '\e84d'; } /* '睢�' */
+  .icon-paper-plane:before { content: '\e84e'; } /* '睢�' */
+  .icon-deviantart:before { content: '\e850'; } /* '睢�' */
+  .icon-grooveshark:before { content: '\e851'; } /* '睢�' */
+  .icon-steam:before { content: '\e853'; } /* '睢�' */
+  .icon-quora:before { content: '\e854'; } /* '睢�' */
+  .icon-angellist:before { content: '\e855'; } /* '睢�' */
+  .icon-icq:before { content: '\e856'; } /* '睢�' */
+  .icon-attach:before { content: '\e85a'; } /* '睢�' */
+  .icon-thumbs-up:before { content: '\e85b'; } /* '睢�' */
+  .icon-vine:before { content: '\e863'; } /* '睢�' */
+  .icon-eye-outline:before { content: '\e868'; } /* '睢�' */
+  .icon-mic-outline:before { content: '\e869'; } /* '睢�' */
+  .icon-camera-outline:before { content: '\e86a'; } /* '睢�' */
+  .icon-feather:before { content: '\e86c'; } /* '睢�' */
+  .icon-mail:before { content: '\e87e'; } /* '睢�' */
+  .icon-vcard-1:before { content: '\e884'; } /* '睥�' */
+  .icon-music-outline:before { content: '\e885'; } /* '睥�' */
+  .icon-location-outline:before { content: '\e888'; } /* '睥�' */
+  .icon-coffee:before { content: '\e88b'; } /* '睥�' */
+  .icon-graduation-cap:before { content: '\e88f'; } /* '睥�' */
+  .icon-camera:before { content: '\e890'; } /* '睥�' */
+  .icon-eye:before { content: '\e891'; } /* '睥�' */
+  .icon-beaker:before { content: '\e892'; } /* '睥�' */
+  .icon-music:before { content: '\e896'; } /* '睥�' */
+  .icon-photo:before { content: '\e897'; } /* '睥�' */
+  .icon-truck:before { content: '\e89b'; } /* '睥�' */
+  .icon-shop:before { content: '\e89e'; } /* '睥�' */
+  .icon-diamond:before { content: '\e89f'; } /* '睥�' */
+  .icon-wallet:before { content: '\e8a1'; } /* '睥�' */
+  .icon-database:before { content: '\e8a3'; } /* '睥�' */
+  .icon-globe:before { content: '\e8a7'; } /* '睥�' */
+  .icon-phone-outline:before { content: '\e8a8'; } /* '睥�' */
+  .icon-tree:before { content: '\e8ab'; } /* '睥�' */
+  .icon-lightbulb:before { content: '\e8ad'; } /* '睥�' */
+  .icon-clock:before { content: '\e8ae'; } /* '睥�' */
+  .icon-location:before { content: '\e8b1'; } /* '睥�' */
+  .icon-pencil:before { content: '\e8b3'; } /* '睥�' */
+  .icon-cup:before { content: '\e8b4'; } /* '睥�' */
+  .icon-doc:before { content: '\e8b5'; } /* '睥�' */
+  .icon-t-shirt:before { content: '\e8b8'; } /* '睥�' */
+  .icon-search:before { content: '\e8be'; } /* '睥�' */
+  .icon-tablet:before { content: '\e8bf'; } /* '睥�' */
+  .icon-briefcase:before { content: '\e8c0'; } /* '睿€' */
+  .icon-note:before { content: '\e8c2'; } /* '睿�' */
+  .icon-sound:before { content: '\e8c3'; } /* '睿�' */
+  .icon-tv:before { content: '\e8c4'; } /* '睿�' */
+  .icon-desktop:before { content: '\e8c5'; } /* '睿�' */
+  .icon-mobile:before { content: '\e8c6'; } /* '睿�' */
+  .icon-cd:before { content: '\e8c7'; } /* '睿�' */
+  .icon-instagram:before { content: '\e8cc'; } /* '睿�' */
+  .icon-medium:before { content: '\f23a'; } /* '飯�' */
+  .icon-tripadvisor:before { content: '\f262'; } /* '飰�' */
+  .icon-snapchat:before { content: '\f2ac'; } /* '飱�' */
+  .icon-imdb:before { content: '\f2d8'; } /* '飲�' */
+  .icon-codepen:before { content: '\f32c'; } /* '飳�' */

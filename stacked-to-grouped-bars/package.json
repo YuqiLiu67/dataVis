@@ -1,0 +1,9 @@
+{
+  "name": "stacked-to-grouped-bars",
+  "main": "stacked-to-grouped-bars.js",
+  "version": "215.0.0",
+  "author": {
+    "name": "Mike Bostock",
+    "url": "https://observablehq.com/@mbostock"
+  }
+}

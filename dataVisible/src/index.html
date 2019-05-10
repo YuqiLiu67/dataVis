@@ -8,10 +8,7 @@
     <link href="css/tabletStatistics.css" rel="stylesheet" type="text/css" />
     <link href="css/map.css" rel="stylesheet" type="text/css" />
 
-    <!--饼图style-->
-    <link rel="stylesheet" type="text/css" href="css/circleStyle.css" />
-    <!--<script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.js"></script>-->
-    <!--饼图style结束-->
+
 
     <!--liquidFill图相关-->
     <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
@@ -24,32 +21,22 @@
     </style>
     <!--liquidFill图相关结束-->
 
-
-
 </head>
 
-<body style="text-align: center; width: 800px">
-    <h1>睡眠之虞</h1>
-    <h2>800条个人睡眠记录数据及世界统计数据向我们讲述了什么</h2>
-    <article style="text-align: left">
+<body style="text-align: center;margin-left: 200px;width: 900px">
+
+    <div style="display:inline-block">
+        <h1>睡眠之虞</h1>
+        <h2>800条个人睡眠记录数据及世界统计数据向我们讲述了什么</h2>
+    </div>
+    
+    <div id="content" style="text-align:left;display: inline-block;width:800px">
         <p>生活在英国Nelson的Dana Diotte是一位地球数学专家，同时也是一位网页开发者。2014年起，他开始使用iOS系统上的Sleep
             Cycle软件收集自己的睡眠数据。这一软件通过自行采集及使用者手动输入的方式，记录了入睡时间、起床时间、睡眠质量、睡眠时间、起床心情、睡前行为、心率等八类数据。</p>
         <p>Dana的这一记录习惯一直保持到2018年，最终有间断地收集了八百余条睡眠数据。</p>
-        <div id="sleepquality">此处为K的睡眠质量图</div>
-    </article>
-    <div id="content" style="text-align:left;width: 800px;display: inline-block">
-        <p>生活在英国Nelson的Dana Diotte是一位地球数学专家，同时也是一位网页开发者。2014年起，他开始使用iOS系统上的Sleep
-            Cycle软件收集自己的睡眠数据。这一软件通过自行采集及使用者手动输入的方式，记录了入睡时间、起床时间、睡眠质量、睡眠时间、起床心情、睡前行为、心率等八类数据。</p>
-        <p>Dana的这一记录习惯一直保持到2018年，最终有间断地收集了八百余条睡眠数据。</p>
-        <div>此处为K的睡眠质量图</div>
-        <p>我们可以看出K在2016年8，9，10月的睡眠质量明显偏低，为了对照试验，我们选取了在此之前的睡眠质量较好的2016年5，6，7月进行对照分析</p>
-
-        
-        <p>
-            以日历形式呈现Dana近五年的睡眠状况，如下图所示。图中每个小方格表示一天，通过颜色可直观看出睡眠软件监测出的Dana当天睡眠质量（从优到劣，由绿色向粉色过渡）。鼠标停留在每个方格上可显示当天的详细数据。
-此外，在记录最初的一年多时间内，Dana还记录了自己的起床心情（Wake up）。这项数据以笑脸、平脸和哭脸的形式呈现在记录的表格上。
-        </p>
-
+        <p>以日历形式呈现Dana近五年的睡眠状况，如下图所示。图中每个小方格表示一天，通过颜色可直观看出睡眠软件监测出的Dana当天睡眠质量（从优到劣，由绿色向粉色过渡）。鼠标停留在每个方格上可显示当天的详细数据。</p>
+        <p>此外，在记录最初的一年多时间内，Dana还记录了自己的起床心情（Wake up）。这项数据以笑脸、平脸和哭脸的形式呈现在记录的表格上。</p>
+        <div id="calendar"></div>
         <p>
             观察这一记录日历，我们可直观地看出2016年8，9，10三个月小方格的颜色都较浅，甚至出现了若干粉色块，即Dana的睡眠质量在这三个月中普遍偏低。让我们不免疑心他的生活在这数月中出现了一些变故。
         </p>
@@ -71,7 +58,7 @@
 
         <p>
             深蓝色条是结束时间相对于前天晚上八点的值，蓝色条是入眠时间相对于前天晚上八点的值
-横轴坐标则是代表是第几天）在睡眠质量较低的8，9，10三个月，Dana惯常在十一点前入睡，六点半左右起床，睡眠时间平均是7.86个小时
+            横轴坐标则是代表是第几天）在睡眠质量较低的8，9，10三个月，Dana惯常在十一点前入睡，六点半左右起床，睡眠时间平均是7.86个小时
         </p>
 
         <div>第二个动态矩形图</div>
@@ -87,53 +74,59 @@
             可以看出入睡时间上相比，质量低的时间段睡眠平均时长反而比质量高的时间段多，但是再比较它们的入睡时间的规律性，8-10月明显比5-6月睡眠要更加规律，
             通过以上的对比分析，可以看出固定入睡时间可提高睡眠质量。
         </p>
-        
 
 
-    <div>第二个动态矩形图</div>
-    <p>在第二个时间段她惯常在xx点xxx</p>
 
-    <!-- 日历图 -->
-    <div id="calendar"></div>
-    <script type="module">
-        import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1?module";  
-        import notebook1 from "js/calendar-view.js";
-        Runtime.load(notebook1,Inspector.into(document.getElementById("calendar")));
-    </script>
-    
-    <!-- 开始结束柱状图 -->
-    <div id="startend"></div>
-    <script type="module">
-        import notebook from "js/stacked-to-grouped-bars.js";
-        Runtime.load(notebook, Inspector.into(document.getElementById("startend")));
-    </script>
-    
-    <!--液体流动图—睡眠计划改变-->
-    <div>
-        <table width="100%">
-            <tbody>
-                <td width="50%" style="text-align: center;">
-                    <p width="50%" style="font-family: 楷体;font-size: 30px;">男性</p>
-                </td>
-                <td width="50%" style="text-align: center;">
-                    <p width="50%" style="font-family: 楷体;font-size: 30px;">女性</p>
-                </td>
-            </tbody>
-        </table>
-        <svg id="fillgauge1" width="49%" height="250" onclick="gauge1.update(NewValue());changeVal();"></svg>
-        <svg id="fillgauge2" width="49%" height="250" onclick="gauge2.update(changeValue());changeVal1()"></svg>
-        <table width="100%">
-            <tbody>
-                <td width="50%" style="text-align: center;">
-                    <p id="genderText" width="50%" style="font-family: 楷体;font-size: 30px;">身体原因</p>
-                </td>
-                <td width="50%" style="text-align: center;">
-                    <p id="genderText1" width="50%" style="font-family: 楷体;font-size: 30px;">身体原因</p>
-                </td>
-            </tbody>
-        </table>
-        <script language="javascript" src="js/liquidFillContent.js"></script>
+        <div>第二个动态矩形图</div>
+        <p>在第二个时间段她惯常在xx点xxx</p>
+
+        <!-- 日历图 -->
+        <div id="calendar"></div>
+        <!-- 开始结束柱状图 -->
+        <div id="startendbar"></div>
+        <script src="js/main.js"></script>
+        <script type="module">
+            import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1?module";  
+            import notebook1 from "js/calendar-view.js";
+            import notebook from "js/stacked-to-grouped-bars.js";
+            Runtime.load(notebook1,Inspector.into(document.getElementById("calendar")));
+            Runtime.load(notebook, Inspector.into(document.getElementById("startendbar")));
+        </script>
+
+
+
+
+
+
+
+
+        <!--液体流动图—睡眠计划改变-->
+        <div>
+            <table width="100%">
+                <tbody>
+                    <td width="50%" style="text-align: center;">
+                        <p width="50%" style="font-family: 楷体;font-size: 30px;">男性</p>
+                    </td>
+                    <td width="50%" style="text-align: center;">
+                        <p width="50%" style="font-family: 楷体;font-size: 30px;">女性</p>
+                    </td>
+                </tbody>
+            </table>
+            <svg id="fillgauge1" width="49%" height="250" onclick="gauge1.update(NewValue());changeVal();"></svg>
+            <svg id="fillgauge2" width="49%" height="250" onclick="gauge2.update(changeValue());changeVal1()"></svg>
+            <table width="100%">
+                <tbody>
+                    <td width="50%" style="text-align: center;">
+                        <p id="genderText" width="50%" style="font-family: 楷体;font-size: 30px;">身体原因</p>
+                    </td>
+                    <td width="50%" style="text-align: center;">
+                        <p id="genderText1" width="50%" style="font-family: 楷体;font-size: 30px;">身体原因</p>
+                    </td>
+                </tbody>
+            </table>
+            <script language="javascript" src="js/liquidFillContent.js"></script>
         </div>
+
         <p>
             在这份统计数据中，有20%的男性认为心情入睡时间的变化会影响心情，而38%的男性认为入睡时间的变化会影响身体。这种情况在女性身上更为严重：她们中的入睡时间的变化会影响心情；47%认为入睡时间的变化会影响身体。
         </p>
@@ -142,7 +135,7 @@
 
         <!--词频图-->
         <img src="img/wordCloud1.png" alt="低频" style="width:800px;"></img>
-        <img src="img/wordCloud2.png" alt="高频" style="width:800px;"></img> 
+        <img src="img/wordCloud2.png" alt="高频" style="width:800px;"></img>
 
         <p>
             7-8月相比5-7月，由于他几乎每天都要喝咖啡，所以我们能观察到worked OUT词组以drink coffee为参照物，出现的概率明显增加，沉重的工作压力也会影响睡眠的质量
@@ -152,16 +145,13 @@
             让我们再来关注一下Dana2014年到2018年的睡眠时间，即Time in bed。参差不齐的竖条按时间顺序排列，长度对应时间时间，鼠标移上可看到详细数值。
         </p>
 
-        <!--圈图-->
-        <div>
-            <div id="chart"></div>
-            <script type="text/javascript" src="js/circle.js"></script>
-        </div>
+        <a href="circle.html">点击查看睡眠时间</a>
+
 
         <p>
             可以看出（看出什么分析一下，比如普遍集中在哪个范围内）
         </p>
-        
+
         <!--世界地图-->
         <div id='sleepmap'></div>
         <script src="//d3js.org/topojson.v1.min.js"></script>
@@ -174,7 +164,7 @@
             从美国四个地理分区的平均睡眠时间情况
         </p>
 
-            <!--统计图-->
+        <!--统计图-->
         <div id='dashboard'></div>
         <script src="http://d3js.org/d3.v3.min.js"></script>
         <script language="JavaScript" src="js/tabletStatistics.js"></script>
@@ -182,7 +172,7 @@
         <p>
             而虽然日均睡眠时间超过7小时，依然有56%的互联网网民表示自己有睡眠问题。K也是其中的一个代表。
         </p>
-            
+
         <p>
             虽然从Dana记录的数据中我们无从得知在睡眠质量不佳、睡眠时间较短的日子里，他有无采取药物手段辅助睡眠。但睡眠障碍已确确实实成为困扰现代人的一大心病。数据显示，在2012年，服用辅助药物助眠的丹麦人数量达到了3.64%,这一数据虽然随着时间呈缓慢下降趋势，但是依然保持在3%左右。睡眠，一场无声无息的战争，悄声在不少人的夜晚拉响了警报。
         </p>
@@ -199,12 +189,8 @@
 
 
 
-    
+
 
 </body>
 
 </html> XXX
-
-
-
-

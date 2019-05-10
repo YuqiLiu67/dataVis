@@ -246,7 +246,7 @@ This chart shows ... `
       inputs: ["d3"],
       value: (async function (d3) {
         // const data = await d3.csv("sleepdata.csv", d3.autoType);
-        const data = await d3.csv("./data/sleeptest.csv", d3.autoType);
+        const data = await d3.csv("../data/sleeptest.csv", d3.autoType);
         return data;
       })
     },
@@ -262,7 +262,7 @@ This chart shows ... `
   ]
 };
 
-const notebook1 = {
+const notebook = {
   id: "d4b2b58758088d34@340",
   modules: [m0]
 };

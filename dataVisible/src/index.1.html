@@ -60,19 +60,18 @@
 
     <!-- 日历图 -->
     <div id="calendar"></div>
+    <!-- 开始结束柱状图 -->
+    <div id="startend"></div>
     <script type="module">
         import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1?module";  
         import notebook1 from "js/calendar-view.js";
         Runtime.load(notebook1,Inspector.into(document.getElementById("calendar")));
-    </script>
-    
-    <div id="startend"></div>
-    <script type="module">
+
         import notebook from "js/stacked-to-grouped-bars.js";
         Runtime.load(notebook, Inspector.into(document.getElementById("startend")));
     </script>
 
-    <!-- 开始结束柱状图 -->
+
 
     <!--液体流动图—睡眠计划改变-->
     <div>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>探索睡眠的奥秘</title>
+
+    <link href="css/tabletStatistics.css" rel="stylesheet" type="text/css"/>
+
+    <!--饼图style-->
+    <link rel="stylesheet" type="text/css" href="css/circleStyle.css"/>
+    <!--<script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.js"></script>-->
+    <!--饼图style结束-->
+
+    <!--liquidFill图相关-->
+    <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+    <script src="js/liquidFill.js" language="JavaScript"></script>
+    <style>
+        .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+    </style>
+    <!--liquidFill图相关结束-->
+
+
+
+</head>
+<body>
+
+<div style="text-align: center">
+    <h1>稳定的入睡时间和入睡计划对睡眠质量会产生影响吗？</h1>
+    <p>夜深了，P准备睡觉</p>
+</div>
+
+<div>此处为K的睡眠质量图</div>
+
+<p>我们可以看出K在2016年8，9，10月的睡眠质量明显偏低，为了对照试验，我们选取了在此之前的睡眠质量较好的2016年5，6，7月进行对照分析</p>
+
+<div>第一个动态矩形图</div>
+<p>在第一个时间段她惯常在xx点入睡，xx点起床，她的睡眠时间平均是</p>
+
+<!--圈图-->
+<div>
+    <div id="chart"></div>
+    <script type="text/javascript" src="js/circle.js"></script>
+</div>
+
+
+<div>第二个动态矩形图</div>
+<p>在第二个时间段她惯常在xx点xxx</p>
+
+<!--液体流动图—睡眠计划改变-->
+<div>
+    <table width="100%">
+        <tbody>
+        <td width="50%" style="text-align: center;">
+            <p width="50%" style="font-family: 楷体;font-size: 30px;">男性</p>
+        </td>
+        <td width="50%" style="text-align: center;">
+            <p width="50%" style="font-family: 楷体;font-size: 30px;">女性</p>
+        </td>
+        </tbody>
+    </table>
+    <svg id="fillgauge1" width="49%" height="250" onclick="gauge1.update(NewValue());changeVal();"></svg>
+    <svg id="fillgauge2" width="49%" height="250" onclick="gauge2.update(changeValue());changeVal1()"></svg>
+    <table width="100%">
+        <tbody>
+        <td width="50%" style="text-align: center;">
+            <p id="genderText" width="50%" style="font-family: 楷体;font-size: 30px;">身体原因</p>
+        </td>
+        <td width="50%" style="text-align: center;">
+            <p id="genderText1" width="50%" style="font-family: 楷体;font-size: 30px;">身体原因</p>
+        </td>
+        </tbody>
+    </table>
+    <script language="javascript" src="js/liquidFillContent.js"></script>
+</div>
+
+<!--词频图-->
+<img src="img/wordFrequency.png" alt="词频统计" style="width:1000px;"></img>
+
+
+<!--统计图-->
+<div id='dashboard'></div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script language="JavaScript" src="js/tabletStatistics.js"></script>
+
+</body>
+</html>

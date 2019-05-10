@@ -83,16 +83,17 @@
         <div>第一个动态矩形图</div>
         <p>在第一个时间段她惯常在xx点入睡，xx点起床，她的睡眠时间平均是</p>
 
+        <p>
+            可以看出入睡时间上相比，质量低的时间段睡眠平均时长反而比质量高的时间段多，但是再比较它们的入睡时间的规律性，8-10月明显比5-6月睡眠要更加规律，
+            通过以上的对比分析，可以看出固定入睡时间可提高睡眠质量。
+        </p>
         
-        <!--圈图-->
+
+
+<<<<<<< HEAD
+        <!--液体流动图—睡眠计划改变-->
         <div>
-            <div id="chart"></div>
-            <script type="text/javascript" src="js/circle.js"></script>
-        </div>
-
-    </div>
-
-
+=======
     <div>第二个动态矩形图</div>
     <p>在第二个时间段她惯常在xx点xxx</p>
 
@@ -113,6 +114,7 @@
     
     <!--液体流动图—睡眠计划改变-->
     <div>
+>>>>>>> 2f470a8c89d2870f10876bc909534e3881387e5a
         <table width="100%">
             <tbody>
                 <td width="50%" style="text-align: center;">
@@ -136,21 +138,70 @@
             </tbody>
         </table>
         <script language="javascript" src="js/liquidFillContent.js"></script>
+        </div>
+        <p>
+            在这份统计数据中，有20%的男性认为心情入睡时间的变化会影响心情，而38%的男性认为入睡时间的变化会影响身体。这种情况在女性身上更为严重：她们中的入睡时间的变化会影响心情；47%认为入睡时间的变化会影响身体。
+        </p>
+
+        <p>我们继续关心这数个月的睡前生活记录，发现</p>
+
+        <!--词频图-->
+        <img src="img/wordCloud1.png" alt="低频" style="width:800px;"></img>
+        <img src="img/wordCloud2.png" alt="高频" style="width:800px;"></img> 
+
+        <p>
+            7-8月相比5-7月，由于他几乎每天都要喝咖啡，所以我们能观察到worked OUT词组以drink coffee为参照物，出现的概率明显增加，沉重的工作压力也会影响睡眠的质量
+        </p>
+
+        <p>
+            让我们再来关注一下Dana2014年到2018年的睡眠时间，即Time in bed。参差不齐的竖条按时间顺序排列，长度对应时间时间，鼠标移上可看到详细数值。
+        </p>
+
+        <!--圈图-->
+        <div>
+            <div id="chart"></div>
+            <script type="text/javascript" src="js/circle.js"></script>
+        </div>
+
+        <p>
+            可以看出（看出什么分析一下，比如普遍集中在哪个范围内）
+        </p>
+        
+        <!--世界地图-->
+        <div id='sleepmap'></div>
+        <script src="//d3js.org/topojson.v1.min.js"></script>
+        <script language="javascript" src="js/map.js"></script>
+
+        <p>
+            从美国四个地理分区的平均睡眠时间情况
+        </p>
+
+            <!--统计图-->
+        <div id='dashboard'></div>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script language="JavaScript" src="js/tabletStatistics.js"></script>
+
+        <p>
+            而虽然日均睡眠时间超过7小时，依然有56%的互联网网民表示自己有睡眠问题。K也是其中的一个代表。
+        </p>
+            
+        <p>
+            虽然从Dana记录的数据中我们无从得知在睡眠质量不佳、睡眠时间较短的日子里，他有无采取药物手段辅助睡眠。但睡眠障碍已确确实实成为困扰现代人的一大心病。数据显示，在2012年，服用辅助药物助眠的丹麦人数量达到了3.64%,这一数据虽然随着时间呈缓慢下降趋势，但是依然保持在3%左右。睡眠，一场无声无息的战争，悄声在不少人的夜晚拉响了警报。
+        </p>
+
+        <p>
+            我们感谢Dana对自己睡眠数据的无私分享——数据无声，却能悄悄讲述睡眠的故事。
+        </p>
+
     </div>
 
-    <!--词频图-->
-    <img src="img/wordFrequency.png" alt="词频统计" style="width:1000px;"></img>
 
 
-    <!--统计图-->
-    <div id='dashboard'></div>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script language="JavaScript" src="js/tabletStatistics.js"></script>
 
-    <!--世界地图-->
-    <div id='sleepmap'></div>
-    <script src="//d3js.org/topojson.v1.min.js"></script>
-    <script language="javascript" src="js/map.js"></script>
+
+
+
+    
 
 </body>
 

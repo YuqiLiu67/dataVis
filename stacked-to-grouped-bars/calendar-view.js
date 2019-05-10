@@ -246,7 +246,7 @@ This chart shows ... `
       inputs: ["d3"],
       value: (async function (d3) {
         // const data = await d3.csv("sleepdata.csv", d3.autoType);
-        const data = await d3.csv("/resource/sleeptest.csv", d3.autoType);
+        const data = await d3.csv("dataVisible/src/data/sleeptest.csv", d3.autoType);
         return data;
       })
     },

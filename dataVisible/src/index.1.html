@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>探索睡眠的奥秘</title>
+    <title>睡眠之虞 | 新闻正文</title>
 
     <link href="css/tabletStatistics.css" rel="stylesheet" type="text/css" />
-    <link href="css/map.css" rel="stylesheet" type="text/css" />
-
+    <!-- <link href="css/main-news.css" rel="stylesheet" type="text/css" /> -->
     <!--饼图style-->
     <link rel="stylesheet" type="text/css" href="css/circleStyle.css" />
     <!--<script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.js"></script>-->
@@ -28,14 +27,14 @@
 
 </head>
 
-<body style="text-align: center; width: 800px">
+<body style="text-align: center">
     <h1>睡眠之虞</h1>
     <h2>800条个人睡眠记录数据及世界统计数据向我们讲述了什么</h2>
     <article style="text-align: left">
         <p>生活在英国Nelson的Dana Diotte是一位地球数学专家，同时也是一位网页开发者。2014年起，他开始使用iOS系统上的Sleep
             Cycle软件收集自己的睡眠数据。这一软件通过自行采集及使用者手动输入的方式，记录了入睡时间、起床时间、睡眠质量、睡眠时间、起床心情、睡前行为、心率等八类数据。</p>
         <p>Dana的这一记录习惯一直保持到2018年，最终有间断地收集了八百余条睡眠数据。</p>
-        <div id="sleepquality">此处为K的睡眠质量图</div>
+        <div>此处为K的睡眠质量图</div>
     </article>
     <div id="content" style="text-align:left;width: 800px;display: inline-block">
         <p>生活在英国Nelson的Dana Diotte是一位地球数学专家，同时也是一位网页开发者。2014年起，他开始使用iOS系统上的Sleep
@@ -44,46 +43,11 @@
         <div>此处为K的睡眠质量图</div>
         <p>我们可以看出K在2016年8，9，10月的睡眠质量明显偏低，为了对照试验，我们选取了在此之前的睡眠质量较好的2016年5，6，7月进行对照分析</p>
 
-        
-        <p>
-            以日历形式呈现Dana近五年的睡眠状况，如下图所示。图中每个小方格表示一天，通过颜色可直观看出睡眠软件监测出的Dana当天睡眠质量（从优到劣，由绿色向粉色过渡）。鼠标停留在每个方格上可显示当天的详细数据。
-此外，在记录最初的一年多时间内，Dana还记录了自己的起床心情（Wake up）。这项数据以笑脸、平脸和哭脸的形式呈现在记录的表格上。
-        </p>
 
-        <p>
-            观察这一记录日历，我们可直观地看出2016年8，9，10三个月小方格的颜色都较浅，甚至出现了若干粉色块，即Dana的睡眠质量在这三个月中普遍偏低。让我们不免疑心他的生活在这数月中出现了一些变故。
-        </p>
-
-        <div>截图8、9、10月</div>
-
-        <p>
-            而在这三个浅色月份之前的2016年5，6，7月呈现出颜色较深的绿色，体现了整体较高的睡眠质量，与之形成了鲜明的对比。
-        </p>
-
-        <div>截图5\6\7月</div>
-
-        <p>
-            为了探索影响睡眠质量的因素，我们截取这两段时间进行对比分析。
-        </p>
-
-        <div>动态矩形图</div>
-        <div>解释动态矩形图</div>
-
-        <p>
-            深蓝色条是结束时间相对于前天晚上八点的值，蓝色条是入眠时间相对于前天晚上八点的值
-横轴坐标则是代表是第几天）在睡眠质量较低的8，9，10三个月，Dana惯常在十一点前入睡，六点半左右起床，睡眠时间平均是7.86个小时
-        </p>
-
-        <div>第二个动态矩形图</div>
-
-        <p>
-            而在睡眠质量相对较高的5，6，7三个月，Dana惯常在十一点半之前睡觉，睡眠时间大约是7.71个小时。
-        </p>
 
         <div>第一个动态矩形图</div>
         <p>在第一个时间段她惯常在xx点入睡，xx点起床，她的睡眠时间平均是</p>
 
-        
         <!--圈图-->
         <div>
             <div id="chart"></div>
@@ -91,8 +55,6 @@
         </div>
 
     </div>
-
-
     <div>第二个动态矩形图</div>
     <p>在第二个时间段她惯常在xx点xxx</p>
 
@@ -104,13 +66,14 @@
         Runtime.load(notebook1,Inspector.into(document.getElementById("calendar")));
     </script>
     
-    <!-- 开始结束柱状图 -->
     <div id="startend"></div>
     <script type="module">
         import notebook from "js/stacked-to-grouped-bars.js";
         Runtime.load(notebook, Inspector.into(document.getElementById("startend")));
     </script>
-    
+
+    <!-- 开始结束柱状图 -->
+
     <!--液体流动图—睡眠计划改变-->
     <div>
         <table width="100%">
@@ -147,15 +110,6 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script language="JavaScript" src="js/tabletStatistics.js"></script>
 
-    <!--世界地图-->
-    <div id='sleepmap'></div>
-    <script src="//d3js.org/topojson.v1.min.js"></script>
-    <script language="javascript" src="js/map.js"></script>
-
 </body>
 
-</html> XXX
-
-
-
-
+</html>

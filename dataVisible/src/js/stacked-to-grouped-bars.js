@@ -8,14 +8,6 @@ const m0 = {
   id: "208ac4d6c3f58ab1@215",
   variables: [
     {
-      inputs: ["md"],
-      value: (function(md){return(
-md`# Stacked-to-Grouped Bars
-
-Animations can preserve object constancy, allowing the reader to follow the data across views. See [Heer and Robertson](http://vis.berkeley.edu/papers/animated_transitions/) for more.`
-)})
-    },
-    {
       name: "viewof layout",
       inputs: ["html"],
       value: (function(html)

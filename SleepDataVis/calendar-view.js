@@ -9,7 +9,16 @@
 
 const m0 = {
   id: "d4b2b58758088d34@340",
-  variables: [
+  variables: [{
+      inputs: ["md"],
+      value: (function (md) {
+        return (
+          md `# Calendar View
+
+This chart shows ... `
+        )
+      })
+    },
     {
       name: "viewof weekday",
       inputs: ["html"],
@@ -260,7 +269,8 @@ const m0 = {
       name: "data",
       inputs: ["d3"],
       value: (async function (d3) {
-        const data = await d3.csv("./data/sleeptest.csv", d3.autoType);
+        // const data = await d3.csv("sleepdata.csv", d3.autoType);
+        const data = await d3.csv("./resource/sleeptest.csv", d3.autoType);
         return data;
       })
     },
@@ -296,9 +306,9 @@ const m1 = {
 // };
 
 // notebook.modules = m0;
-const notebook1 = {
+const notebook = {
   id: "d4b2b58758088d34@340",
   modules: [m0]
 };
 
-export default notebook1;
+export default notebook;

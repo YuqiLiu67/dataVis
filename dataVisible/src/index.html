@@ -81,21 +81,21 @@
 
         <!-- 日历图 -->
         <div id="calendar"></div>
-        <script type="module">
-            import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1?module";  
-            import notebook1 from "js/calendar-view.js";
-            Runtime.load(notebook1,Inspector.into(document.getElementById("calendar")));
-        </script>
-
-
         <!-- 开始结束柱状图 -->
         <div id="startendbar"></div>
         <script src="js/main.js"></script>
         <script type="module">
             import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1?module";  
+            import notebook1 from "js/calendar-view.js";
             import notebook from "js/stacked-to-grouped-bars.js";
+            Runtime.load(notebook1,Inspector.into(document.getElementById("calendar")));
             Runtime.load(notebook, Inspector.into(document.getElementById("startendbar")));
         </script>
+
+
+
+
+
 
 
 

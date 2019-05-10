@@ -83,16 +83,21 @@
         <div id="calendar"></div>
         <script type="module">
             import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1?module";  
-        import notebook1 from "js/calendar-view.js";
-        Runtime.load(notebook1,Inspector.into(document.getElementById("calendar")));
-    </script>
+            import notebook1 from "js/calendar-view.js";
+            Runtime.load(notebook1,Inspector.into(document.getElementById("calendar")));
+        </script>
+
 
         <!-- 开始结束柱状图 -->
-        <div id="startend"></div>
+        <div id="startendbar"></div>
+        <script src="js/main.js"></script>
         <script type="module">
+            import {Inspector, Runtime} from "https://unpkg.com/@observablehq/notebook-runtime@1?module";  
             import notebook from "js/stacked-to-grouped-bars.js";
-        Runtime.load(notebook, Inspector.into(document.getElementById("startend")));
-    </script>
+            Runtime.load(notebook, Inspector.into(document.getElementById("startendbar")));
+        </script>
+
+
 
         <!--液体流动图—睡眠计划改变-->
         <div>
@@ -120,6 +125,7 @@
             </table>
             <script language="javascript" src="js/liquidFillContent.js"></script>
         </div>
+
         <p>
             在这份统计数据中，有20%的男性认为心情入睡时间的变化会影响心情，而38%的男性认为入睡时间的变化会影响身体。这种情况在女性身上更为严重：她们中的入睡时间的变化会影响心情；47%认为入睡时间的变化会影响身体。
         </p>

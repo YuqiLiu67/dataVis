@@ -8,10 +8,7 @@
     <link href="css/tabletStatistics.css" rel="stylesheet" type="text/css" />
     <link href="css/map.css" rel="stylesheet" type="text/css" />
 
-    <!--饼图style-->
-    <link rel="stylesheet" type="text/css" href="css/circleStyle.css" />
-    <!--<script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.js"></script>-->
-    <!--饼图style结束-->
+
 
     <!--liquidFill图相关-->
     <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
@@ -28,16 +25,14 @@
 
 </head>
 
-<body style="text-align: center; width: 800px">
-    <h1>睡眠之虞</h1>
-    <h2>800条个人睡眠记录数据及世界统计数据向我们讲述了什么</h2>
-    <article style="text-align: left">
-        <p>生活在英国Nelson的Dana Diotte是一位地球数学专家，同时也是一位网页开发者。2014年起，他开始使用iOS系统上的Sleep
-            Cycle软件收集自己的睡眠数据。这一软件通过自行采集及使用者手动输入的方式，记录了入睡时间、起床时间、睡眠质量、睡眠时间、起床心情、睡前行为、心率等八类数据。</p>
-        <p>Dana的这一记录习惯一直保持到2018年，最终有间断地收集了八百余条睡眠数据。</p>
-        <div id="sleepquality">此处为K的睡眠质量图</div>
-    </article>
-    <div id="content" style="text-align:left;width: 800px;display: inline-block">
+<body style="text-align: center;margin-left: 200px;width: 900px">
+
+    <div style="display:inline-block">
+        <h1>睡眠之虞</h1>
+        <h2>800条个人睡眠记录数据及世界统计数据向我们讲述了什么</h2>
+    </div>
+    
+    <div id="content" style="text-align:left;display: inline-block;width:800px">
         <p>生活在英国Nelson的Dana Diotte是一位地球数学专家，同时也是一位网页开发者。2014年起，他开始使用iOS系统上的Sleep
             Cycle软件收集自己的睡眠数据。这一软件通过自行采集及使用者手动输入的方式，记录了入睡时间、起床时间、睡眠质量、睡眠时间、起床心情、睡前行为、心率等八类数据。</p>
         <p>Dana的这一记录习惯一直保持到2018年，最终有间断地收集了八百余条睡眠数据。</p>
@@ -90,10 +85,6 @@
         
 
 
-<<<<<<< HEAD
-        <!--液体流动图—睡眠计划改变-->
-        <div>
-=======
     <div>第二个动态矩形图</div>
     <p>在第二个时间段她惯常在xx点xxx</p>
 
@@ -114,7 +105,6 @@
     
     <!--液体流动图—睡眠计划改变-->
     <div>
->>>>>>> 2f470a8c89d2870f10876bc909534e3881387e5a
         <table width="100%">
             <tbody>
                 <td width="50%" style="text-align: center;">
@@ -157,11 +147,8 @@
             让我们再来关注一下Dana2014年到2018年的睡眠时间，即Time in bed。参差不齐的竖条按时间顺序排列，长度对应时间时间，鼠标移上可看到详细数值。
         </p>
 
-        <!--圈图-->
-        <div>
-            <div id="chart"></div>
-            <script type="text/javascript" src="js/circle.js"></script>
-        </div>
+        <a href="circle.html">点击查看睡眠时间</a>
+
 
         <p>
             可以看出（看出什么分析一下，比如普遍集中在哪个范围内）

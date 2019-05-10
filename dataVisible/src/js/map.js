@@ -16,7 +16,7 @@
         var path = d3.geo.path().projection(projection);
         var graticule = d3.geo.graticule();
         // SVG related definitions
-        var svg = d3.select('body').append('svg')
+        var svg = d3.select('#sleepmap').append('svg')
             .attr({
                 'width': width,
                 'height': height
@@ -52,7 +52,7 @@
             .attr("class", "graticule")
             .attr("d", path);
 
-        d3.json('mockelasticdata.json', function (error, mockdata) {
+        d3.json('js/mockelasticdata.json', function (error, mockdata) {
             if (error) return console.error(error);
             console.log('mockdata', mockdata);
             mapdata = mockdata;
@@ -70,7 +70,7 @@
             //         return;
             //     }
             // }
-            d3.json('world.json', function (error, world) {
+            d3.json('js/world.json', function (error, world) {
                 if (error) return console.error(error);
                 console.log('world', world);
                 processWorldD(world, data);
@@ -82,10 +82,14 @@
             for (var idx = 0; idx < data.aggregations.world_map.buckets.length; idx++) {
                 var cCode = data.aggregations.world_map.buckets[idx].key.toUpperCase();
                 var doc_count = data.aggregations.world_map.buckets[idx].doc_count;
+                var female = data.aggregations.world_map.buckets[idx].female;
+                var text = data.aggregations.world_map.buckets[idx].text;
                 for (var wdx = 0; wdx < world.objects.subunits.geometries.length; wdx++) {
                     var cName = world.objects.subunits.geometries[wdx].id.toUpperCase();
                     if (cCode === cName) {
                         world.objects.subunits.geometries[wdx].properties.doc_count = doc_count;
+                        world.objects.subunits.geometries[wdx].properties.female = female;
+                        world.objects.subunits.geometries[wdx].properties.text = text;
                     }
                 }
             }
@@ -123,7 +127,8 @@
                 })
                 //.attr('transform', function(d) { return 'translate('+ path.centroid(d) +')'; })
                 .attr('transform', function (d) {
-                    return 'translate(' + (width - (5 * d.properties.name.length)) + ',' + (15) + ')';
+                    var name_or_text = d.properties.text ? d.properties.text : d.properties.name;
+                    return 'translate(' + (width - (5 * name_or_text.length) - 35) + ',' + (35) + ')';
                 })
                 .attr('dy', '.35em')
                 .attr('filter', 'url(#gray-background)')
@@ -134,6 +139,8 @@
                     // return d.properties.name;
                     return d.properties.text ? d.properties.text : d.properties.name;
                 })
+                .attr("font-size", "30px")
+                // .attr("font-weight", "bold")
                 .append('svg:tspan')
                 .attr('x', 0)
                 .attr('dy', 20)
@@ -141,13 +148,15 @@
                     return d.properties.doc_count ? 'Male: '+d.properties.doc_count : '';
                     // return d.properties.doc_count ? d.properties.doc_count : '';
                 })
+                .attr("font-size", "20px")
                 .append('svg:tspan')
                 .attr('x', 0)
-                .attr('dy', 35)
+                .attr('dy', 20)
                 .text(function (d) {
-                    return d.properties. ? 'Male: '+d.properties.doc_count : '';
+                    return d.properties.female ? 'Female: '+ d.properties.female : '';
                     // return d.properties.doc_count ? d.properties.doc_count : '';
                 })
+                .attr("font-size", "20px")
                 ;
         }
 
